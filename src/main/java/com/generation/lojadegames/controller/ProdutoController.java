@@ -2,6 +2,8 @@ package com.generation.lojadegames.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,12 +40,12 @@ public class ProdutoController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<ProdutoModel> post (@RequestBody ProdutoModel produto) {
+	public ResponseEntity<ProdutoModel> post (@Valid @RequestBody ProdutoModel produto) {
 		 return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
 	}
 	
 	@PutMapping
-	public ResponseEntity<ProdutoModel> put (@RequestBody ProdutoModel produto) {
+	public ResponseEntity<ProdutoModel> put (@Valid @RequestBody ProdutoModel produto) {
 		 return ResponseEntity.status(HttpStatus.OK).body(repository.save(produto));
 	}
 	
